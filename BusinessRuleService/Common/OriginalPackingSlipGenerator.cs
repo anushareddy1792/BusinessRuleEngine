@@ -18,13 +18,15 @@ namespace BusinessRuleService.Common
         /// <returns></returns>
         public bool GeneratePackingSlip(List<Slip> items)
         {
+            var result = false;
             foreach (var item in items)
             {
                 var message = $"{ item.Message} at the cost of {item.Cost}.{item.AdditionalInfo}";
                 Console.WriteLine(message);
+                result = true;
             }
 
-            return true;
+            return result;
 
         }
     }
