@@ -7,7 +7,7 @@ namespace BusinessRuleService.Interfaces
     /// <summary>
     /// Interface for modifying packing slip
     /// </summary>
-    interface IPackingSlipAction
+    public interface IPackingSlipAction
     {
         bool AddFreeItemToSlip();
     }

@@ -15,6 +15,10 @@ namespace BusinessRuleService.Videos
 
         private const string V_LEARNING_TO_SKI = "Learning to Ski";
 
+        /// <summary>
+        /// Modified packing slip to add free item
+        /// </summary>
+        /// <returns></returns>
         public bool AddFreeItemToSlip()
         {
             throw new NotImplementedException();
