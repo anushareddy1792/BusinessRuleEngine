@@ -10,7 +10,7 @@ namespace BusinessRuleService.Videos
     /// <summary>
     /// Implements rules for a video.
     /// </summary>
-   public class VideoPaymentRule : PackingSlip, IPackingSlipAction, IPaymentRule
+    public class VideoPaymentRule : PackingSlip, IPackingSlipAction, IPaymentRule
     {
 
         private const string V_LEARNING_TO_SKI = "Learning to Ski";
@@ -21,7 +21,18 @@ namespace BusinessRuleService.Videos
         /// <returns></returns>
         public bool AddFreeItemToSlip()
         {
-            throw new NotImplementedException();
+
+            Slip freeItem = new Slip()
+            {
+                Cost = 0,
+                Message = $"A Free First Aid Video  is added for {V_LEARNING_TO_SKI}.",
+                AdditionalInfo = "(As a result of court decision in 1997)"
+            };
+            Items = new List<Slip>();
+            Items.Add(freeItem);
+            return true;
+
+
         }
 
         public bool ExecuteRule(Product product)
@@ -29,10 +40,10 @@ namespace BusinessRuleService.Videos
             var isSlipModified = false;
             if (product.Name == V_LEARNING_TO_SKI)
             {
-                isSlipModified= AddFreeItemToSlip();
+                isSlipModified = AddFreeItemToSlip();
             }
             _generator = new OriginalPackingSlipGenerator();
-            var isSlipGenerated=GernerateSlip(product);
+            var isSlipGenerated = GernerateSlip(product);
             return (isSlipModified & isSlipGenerated);
         }
 
