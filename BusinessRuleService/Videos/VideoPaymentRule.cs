@@ -34,6 +34,11 @@ namespace BusinessRuleService.Videos
 
 
         }
+        /// <summary>
+        /// Executes payment rule for video
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
 
         public bool ExecuteRule(Product product)
         {

@@ -6,8 +6,17 @@ using System.Text;
 
 namespace BusinessRuleService.Membership
 {
+    /// <summary>
+    /// Implements common logic for membership product
+    /// </summary>
     public abstract class Membership
     {
+
+        /// <summary>
+        /// Emails owner after activation or upgrade of membership
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         public bool EmailOwner(Product product)
         {
             var result = false;

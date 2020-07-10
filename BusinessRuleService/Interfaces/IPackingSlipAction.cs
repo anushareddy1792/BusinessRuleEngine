@@ -9,6 +9,10 @@ namespace BusinessRuleService.Interfaces
     /// </summary>
     public interface IPackingSlipAction
     {
+        /// <summary>
+        /// Adds free item to slip
+        /// </summary>
+        /// <returns></returns>
         bool AddFreeItemToSlip();
     }
 }

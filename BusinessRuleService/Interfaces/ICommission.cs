@@ -9,6 +9,10 @@ namespace BusinessRuleService.Interfaces
     /// </summary>
     public interface ICommision
     {
+        /// <summary>
+        /// pays commission to agent
+        /// </summary>
+        /// <returns></returns>
         bool PayCommission();
     }
 }

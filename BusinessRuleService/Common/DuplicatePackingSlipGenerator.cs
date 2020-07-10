@@ -13,6 +13,12 @@ namespace BusinessRuleService.Common
     public class DuplicatePackingSlipGenerator : IGenerator
     {
         private IGenerator _generator;
+
+        /// <summary>
+        /// Calls the orginal packing slip generates and return copy.
+        /// </summary>
+        /// <param name="items"></param>
+        /// <returns></returns>
         public bool GeneratePackingSlip(List<Slip> items)
         {
 

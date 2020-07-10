@@ -4,6 +4,9 @@ using System.Text;
 
 namespace BusinessRuleService.Models.Enums
 {
+    /// <summary>
+    /// product type
+    /// </summary>
     public enum ProductType
     {
         PhysicalProduct = 1,
