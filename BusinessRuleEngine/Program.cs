@@ -1,4 +1,5 @@
-﻿using BusinessRuleService.Models.Enums;
+﻿using BusinessRuleService.Models;
+using BusinessRuleService.Models.Enums;
 using System;
 using System.Collections.Generic;
 
@@ -15,7 +16,11 @@ namespace BusinessRuleEngine
         public static void ExecuteBussinessRule()
         {
             var products = GetProducts();
-            
+            foreach (var product in products)
+            {
+                var classObj = Factory.GetObject(product.Type);
+                classObj.ExecuteRule(product);
+            }
             Console.ReadLine();
         }
 
