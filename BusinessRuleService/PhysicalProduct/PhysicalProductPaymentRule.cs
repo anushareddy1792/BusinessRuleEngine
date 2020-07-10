@@ -12,6 +12,7 @@ namespace BusinessRuleService.PhysicalProduct
     /// </summary>
     public class PhysicalProductPaymentRule : PackingSlip,IPaymentRule
     {
+        ICommision commision = new CommissionPaymentToAgent();
         /// <summary>
         /// Executes rules for a physical product
         /// </summary>
@@ -21,7 +22,8 @@ namespace BusinessRuleService.PhysicalProduct
         {
             _generator = new OriginalPackingSlipGenerator();
            var isGenerated= GernerateSlip(product);
-            return isGenerated;
+            var isCommissionpaid = commision.PayCommission();
+            return (isGenerated && isCommissionpaid);
 
         }
     }

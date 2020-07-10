@@ -12,6 +12,7 @@ namespace BusinessRuleService.Books
     /// </summary>
     public class BookPaymentRule :PackingSlip, IPaymentRule
     {
+        ICommision commision = new CommissionPaymentToAgent();
 
         /// <summary>
         /// Executes rules for  a book
@@ -23,7 +24,8 @@ namespace BusinessRuleService.Books
           
             _generator = new DuplicatePackingSlipGenerator();
             var  isGenerated= GernerateSlip(product);
-            return isGenerated;
+            var isCommissionpaid = commision.PayCommission();
+            return (isGenerated && isCommissionpaid);
         }
     }
 }
