@@ -9,7 +9,8 @@ namespace BusinessRuleService.Common
     {
         public bool PayCommission()
         {
-            throw new NotImplementedException();
+            return true;
+
         }
     }
 }
