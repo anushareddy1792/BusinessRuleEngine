@@ -16,6 +16,6 @@ namespace BusinessRuleService.Interfaces
         /// </summary>
         /// <param name="Product"></param>
         /// <returns></returns>
-        bool ExecuteRule(Product Product);
+        bool ExecuteRule(Product product);
     }
 }

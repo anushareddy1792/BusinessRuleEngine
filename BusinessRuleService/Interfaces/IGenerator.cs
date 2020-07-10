@@ -8,6 +8,6 @@ namespace BusinessRuleService.Interfaces
    
         public interface IGenerator
         {
-            bool GeneratePackingSlip(List<PackingSlip> items);
+            bool GeneratePackingSlip(List<Slip> items);
         }
  }

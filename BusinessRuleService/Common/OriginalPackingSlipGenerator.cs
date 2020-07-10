@@ -16,7 +16,7 @@ namespace BusinessRuleService.Common
         /// </summary>
         /// <param name="items"></param>
         /// <returns></returns>
-        public bool GeneratePackingSlip(List<PackingSlip> items)
+        public bool GeneratePackingSlip(List<Slip> items)
         {
             foreach (var item in items)
             {

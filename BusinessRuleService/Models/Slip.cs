@@ -7,7 +7,7 @@ namespace BusinessRuleService.Models
     /// <summary>
     /// PackingSlip class
     /// </summary>
-    public class PackingSlip
+    public class Slip
     {
         /// <summary>
         /// Message

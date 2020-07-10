@@ -1,4 +1,5 @@
-﻿using BusinessRuleService.Interfaces;
+﻿using BusinessRuleService.Common;
+using BusinessRuleService.Interfaces;
 using BusinessRuleService.Models;
 using System;
 using System.Collections.Generic;
@@ -9,16 +10,19 @@ namespace BusinessRuleService.PhysicalProduct
     /// <summary>
     /// Implements rules for a physical product.
     /// </summary>
-    public class PhysicalProductPaymentRule : IPaymentRule
+    public class PhysicalProductPaymentRule : PackingSlip,IPaymentRule
     {
         /// <summary>
         /// Executes rules for a physical product
         /// </summary>
         /// <param name="Product"></param>
         /// <returns></returns>
-        public bool ExecuteRule(Product Product)
+        public bool ExecuteRule(Product product)
         {
-            throw new NotImplementedException();
+            _generator = new OriginalPackingSlipGenerator();
+           var isGenerated= GernerateSlip(product);
+            return isGenerated;
+
         }
     }
 }

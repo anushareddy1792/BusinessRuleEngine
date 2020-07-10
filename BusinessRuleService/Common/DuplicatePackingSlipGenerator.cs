@@ -11,7 +11,7 @@ namespace BusinessRuleService.Common
     public class DuplicatePackingSlipGenerator : IGenerator
     {
         private IGenerator _generator;
-        public bool GeneratePackingSlip(List<PackingSlip> items)
+        public bool GeneratePackingSlip(List<Slip> items)
         {
             _generator = new OriginalPackingSlipGenerator();
             Console.WriteLine("This is from duplicate packing slip.");

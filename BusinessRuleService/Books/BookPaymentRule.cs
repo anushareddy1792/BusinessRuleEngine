@@ -1,4 +1,5 @@
-﻿using BusinessRuleService.Interfaces;
+﻿using BusinessRuleService.Common;
+using BusinessRuleService.Interfaces;
 using BusinessRuleService.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace BusinessRuleService.Books
     /// <summary>
     /// Implements payment rules for books
     /// </summary>
-    public class BookPaymentRule : IPaymentRule
+    public class BookPaymentRule :PackingSlip, IPaymentRule
     {
 
         /// <summary>
@@ -17,9 +18,12 @@ namespace BusinessRuleService.Books
         /// </summary>
         /// <param name="Product">A product object for a book</param>
         /// <returns>true if successfuly executed</returns>
-        public bool ExecuteRule(Product Product)
+        public bool ExecuteRule(Product product)
         {
-            throw new NotImplementedException();
+          
+            _generator = new DuplicatePackingSlipGenerator();
+            var  isGenerated= GernerateSlip(product);
+            return isGenerated;
         }
     }
 }
