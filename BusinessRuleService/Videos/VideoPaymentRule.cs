@@ -43,13 +43,16 @@ namespace BusinessRuleService.Videos
         public bool ExecuteRule(Product product)
         {
             var isSlipModified = false;
+            var isSlipModificationRequired = false;
             if (product.Name == V_LEARNING_TO_SKI)
             {
+                isSlipModificationRequired = true;
                 isSlipModified = AddFreeItemToSlip();
             }
             _generator = new OriginalPackingSlipGenerator();
             var isSlipGenerated = GernerateSlip(product);
-            return (isSlipModified & isSlipGenerated);
+            var isRuleeXecuted = isSlipModificationRequired ? isSlipModified : true;
+            return (isRuleeXecuted & isSlipGenerated);
         }
 
     }

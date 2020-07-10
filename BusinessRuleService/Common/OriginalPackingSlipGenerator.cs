@@ -19,11 +19,14 @@ namespace BusinessRuleService.Common
         public bool GeneratePackingSlip(List<Slip> items)
         {
             var result = false;
-            foreach (var item in items)
+            if (items != null)
             {
-                var message = $"{ item.Message} at the cost of {item.Cost}.{item.AdditionalInfo}";
-                Console.WriteLine(message);
-                result = true;
+                foreach (var item in items)
+                {
+                    var message = $"{ item.Message} at the cost of {item.Cost}.{item.AdditionalInfo}";
+                    Console.WriteLine(message);
+                    result = true;
+                }
             }
 
             return result;
