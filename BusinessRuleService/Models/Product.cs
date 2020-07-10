@@ -10,9 +10,24 @@ namespace BusinessRuleService.Models
     /// </summary>
     public class Product
     {
+        /// <summary>
+        /// Id 
+        /// </summary>
         public int Id { get; set; }
+        
+        /// <summary>
+        /// Product type
+        /// </summary>
         public ProductType Type { get; set; }
+
+        /// <summary>
+        /// Name of the prodcut
+        /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Cost of the product
+        /// </summary>
         public int Cost { get; set; }
     }
 }
