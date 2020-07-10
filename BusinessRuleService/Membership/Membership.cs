@@ -21,22 +21,25 @@ namespace BusinessRuleService.Membership
         {
             var result = false;
             var message = string.Empty;
-            switch (product.Type)
+            if (product != null)
             {
-                case ProductType.MembershipActivate:
-                    message = $"Mail sent to owner on membership activation at the cost of {product.Cost}";
-                    result = true;
-                    break;
-                case ProductType.MembershipUpgrade:
-                    message = $"Mail sent to owner on membership upgrade at the cost of {product.Cost}";
-                    result = true;
-                    break;
-                default:
-                    result= false;
-                    break;
+                switch (product.Type)
+                {
+                    case ProductType.MembershipActivate:
+                        message = $"Mail sent to owner on membership activation at the cost of {product.Cost}";
+                        result = true;
+                        break;
+                    case ProductType.MembershipUpgrade:
+                        message = $"Mail sent to owner on membership upgrade at the cost of {product.Cost}";
+                        result = true;
+                        break;
+                    default:
+                        result = false;
+                        break;
+                }
+
+                Console.WriteLine(message);
             }
-            
-            Console.WriteLine(message);
             return result;
         }
 
