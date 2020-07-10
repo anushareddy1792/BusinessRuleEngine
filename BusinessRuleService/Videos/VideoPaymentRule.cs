@@ -1,4 +1,5 @@
-﻿using BusinessRuleService.Interfaces;
+﻿using BusinessRuleService.Common;
+using BusinessRuleService.Interfaces;
 using BusinessRuleService.Models;
 using System;
 using System.Collections.Generic;
@@ -9,16 +10,27 @@ namespace BusinessRuleService.Videos
     /// <summary>
     /// Implements rules for a video.
     /// </summary>
-    public class VideoPaymentRule : IPaymentRule
+   public class VideoPaymentRule : PackingSlip, IPackingSlipAction, IPaymentRule
     {
-        /// <summary>
-        /// Executes rules for a video
-        /// </summary>
-        /// <param name="Product"></param>
-        /// <returns></returns>
-        public bool ExecuteRule(Product Product)
+
+        private const string V_LEARNING_TO_SKI = "Learning to Ski";
+
+        public bool AddFreeItemToSlip()
         {
             throw new NotImplementedException();
         }
+
+        public bool ExecuteRule(Product product)
+        {
+            var isSlipModified = false;
+            if (product.Name == V_LEARNING_TO_SKI)
+            {
+                isSlipModified= AddFreeItemToSlip();
+            }
+            _generator = new OriginalPackingSlipGenerator();
+            var isSlipGenerated=GernerateSlip(product);
+            return (isSlipModified & isSlipGenerated);
+        }
+
     }
 }
