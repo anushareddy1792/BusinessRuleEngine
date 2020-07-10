@@ -9,6 +9,7 @@ namespace BusinessRuleService.Common
     {
         public bool PayCommission()
         {
+            Console.WriteLine("Commision paid to agent");
             return true;
 
         }

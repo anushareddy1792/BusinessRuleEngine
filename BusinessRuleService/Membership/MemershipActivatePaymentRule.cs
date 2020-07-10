@@ -9,7 +9,7 @@ namespace BusinessRuleService.Membership
     /// <summary>
     /// Implements payment rules for memebrship activation
     /// </summary>
-    public class MemershipActivatePaymentRule : IPaymentRule
+    public class MemershipActivatePaymentRule :Membership, IPaymentRule
     {
 
 
@@ -18,9 +18,9 @@ namespace BusinessRuleService.Membership
         /// </summary>
         /// <param name="Product">A product object for a membership activation</param>
         /// <returns>true if successfuly executed</returns>
-        public bool ExecuteRule(Product Product)
+        public bool ExecuteRule(Product product)
         {
-            throw new NotImplementedException();
+            return EmailOwner(product);
         }
     }
 }

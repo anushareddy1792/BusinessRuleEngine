@@ -19,11 +19,12 @@ namespace BusinessRuleService.UnitTests
             Assert.True(result);
         }
 
-        public void TestRuleForCommision()
+        [Fact]
+        public void TestRulewithNoItems()
         {
             var testObj = GetTestObject();
-            var result = objUnderTest.ExecuteRule(testObj);
-            Assert.True(result);
+            var result = objUnderTest.ExecuteRule(null);
+            Assert.False(result);
         }
 
         private Product GetTestObject()

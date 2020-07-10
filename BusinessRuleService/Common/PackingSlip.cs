@@ -25,6 +25,10 @@ namespace BusinessRuleService.Common
             {
                 Items = new List<Slip>();
             }
+            if (product == null && Items.Count<=0)
+            {
+                return false;
+            }
             AddDetails(product);
             _generator.GeneratePackingSlip(Items);
             return true;

@@ -20,6 +20,13 @@ namespace BusinessRuleService.UnitTests
             var result = objUnderTest.ExecuteRule(testObj);
             Assert.True(result);
         }
+        [Fact]
+        public void TestRuleWithNoItem()
+        {
+            var testObj = GetTestObject();
+            var result = objUnderTest.ExecuteRule(null);
+            Assert.False(result);
+        }
 
         private Product GetTestObject()
         {

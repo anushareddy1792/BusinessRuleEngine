@@ -9,16 +9,16 @@ namespace BusinessRuleService.Membership
     /// <summary>
     /// Implements payment rules for membership upgrade
     /// </summary>
-    public class MembershipUpgardePaymentRule : IPaymentRule
+    public class MembershipUpgardePaymentRule :Membership, IPaymentRule
     {
         /// <summary>
         /// Executes rules for  a membership upgrade
         /// </summary>
         /// <param name="Product">A product object for a membership upgrade</param>
         /// <returns>true if successfuly executed</returns>
-        public bool ExecuteRule(Product Product)
+        public bool ExecuteRule(Product product)
         {
-            throw new NotImplementedException();
+           return EmailOwner(product);
         }
     }
 }
